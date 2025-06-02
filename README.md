@@ -15,17 +15,8 @@ TaskManagerSolution es una solución modular desarrollada en .NET que incluye un
 - Operaciones CRUD para tareas.
 - Preparado para futura expansión con interfaz web o móvil.
 
-## Instalación
-Clona el repositorio y abre la solución `TaskManagerSolution.sln` en Visual Studio.
-
-```bash
-git clone https://github.com/bradparedes/TaskManagerSolution.git
-
 ## Contribuciones
 ¡Bienvenidas! Si quieres aportar, crea un fork y un pull request.
-
-## Licencia
-Este proyecto está bajo la licencia MIT.
 
 ##🗄️ Base de Datos
 Este proyecto utiliza SQL Server como sistema gestor de base de datos. A continuación se describen las tablas principales incluidas en el script TaskManagerSchema.sql.
@@ -72,6 +63,11 @@ Editar
 :r Database/TaskManagerSchema.sql
 Asegúrate de tener permisos para crear bases de datos.
 
+## Instalación
+Clona el repositorio y abre la solución `TaskManagerSolution.sln` en Visual Studio.
 
+```bash
+git clone https://github.com/bradparedes/TaskManagerSolution.git
 
-
+## Licencia
+Este proyecto está bajo la licencia MIT.
