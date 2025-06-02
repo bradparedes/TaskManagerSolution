@@ -20,6 +20,7 @@ Clona el repositorio y abre la solución `TaskManagerSolution.sln` en Visual Stu
 
 ```bash
 git clone https://github.com/bradparedes/TaskManagerSolution.git
+
 ## Contribuciones
 ¡Bienvenidas! Si quieres aportar, crea un fork y un pull request.
 
