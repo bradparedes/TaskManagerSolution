@@ -1,32 +1,25 @@
 # TaskManagerSolution
 
 ## Descripción
-TaskManagerSolution es una aplicación para la gestión de tareas que incluye API, núcleo de lógica, infraestructura y una interfaz de usuario.  
-Está desarrollada en .NET con arquitectura limpia y modular para facilitar su mantenimiento y escalabilidad.
+TaskManagerSolution es una solución modular desarrollada en .NET que incluye una API, lógica de negocio y una infraestructura base para gestionar tareas. Actualmente, el proyecto está en desarrollo y se encuentra completo hasta el servidor con Blazor, pero aún no se ha integrado una interfaz de usuario final.
 
-## Estructura del proyecto
-- **TaskManager.API**: Proyecto para la API REST que expone los servicios de gestión de tareas.
-- **TaskManager.Core**: Lógica del negocio y entidades principales.
-- **TaskManager.Infrastructure**: Implementación de acceso a datos y persistencia.
-- **TaskManager.UI**: Interfaz gráfica para la gestión de tareas.
-- **TaskManagerSolution.sln**: Solución principal que agrupa todos los proyectos.
+## Estructura del Proyecto
+- **TaskManager.API**: Contiene la API REST para la gestión de tareas.
+- **TaskManager.Core**: Contiene las entidades y la lógica de negocio principal.
+- **TaskManager.Infrastructure**: Gestión de datos y conexión a base de datos.
+- **TaskManager.UI**: Proyecto Blazor Server (pendiente de implementación de la UI).
 
-## Tecnologías utilizadas
-- .NET 8 
-- Entity Framework Core
-- ASP.NET Core Web API
-- C#
-- SQL Server 
+## Características
+- Arquitectura limpia por capas (API, Core, Infrastructure).
+- Autenticación y autorización básica (Pendiente).
+- Operaciones CRUD para tareas.
+- Preparado para futura expansión con interfaz web o móvil.
 
-## Cómo ejecutar
-1. Clona el repositorio:  
-   `git clone https://github.com/bradparedes/TaskManagerSolution.git`
-2. Abre la solución en Visual Studio 2022 o superior.
-3. Restaura los paquetes NuGet.
-4. Configura la cadena de conexión en el archivo `appsettings.json`.
-5. Ejecuta la solución desde el proyecto `TaskManager.API` para iniciar la API.
-6. Ejecuta el proyecto `TaskManager.UI` para abrir la interfaz de usuario.
+## Instalación
+Clona el repositorio y abre la solución `TaskManagerSolution.sln` en Visual Studio.
 
+```bash
+git clone https://github.com/bradparedes/TaskManagerSolution.git
 ## Contribuciones
 ¡Bienvenidas! Si quieres aportar, crea un fork y un pull request.
 
