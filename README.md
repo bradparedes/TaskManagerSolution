@@ -12,11 +12,11 @@ Está desarrollada en .NET con arquitectura limpia y modular para facilitar su m
 - **TaskManagerSolution.sln**: Solución principal que agrupa todos los proyectos.
 
 ## Tecnologías utilizadas
-- .NET 8 (o la versión que uses)
+- .NET 8 
 - Entity Framework Core
 - ASP.NET Core Web API
 - C#
-- SQL Server (u otro motor de base de datos si usas)
+- SQL Server 
 
 ## Cómo ejecutar
 1. Clona el repositorio:  
