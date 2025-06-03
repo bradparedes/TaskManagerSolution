@@ -1,0 +1,26 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<h1>Bienvenido a Task Manager</h1>
+
+<AuthorizeView>
+    <Authorized>
+        <h3>Hola, @context.User.Identity?.Name 👋</h3>
+
+        <AuthorizeView Roles="Admin">
+            <p>🛠 Panel de administración disponible.</p>
+            <a class="btn btn-warning" href="/admin">Ir al panel de admin</a>
+        </AuthorizeView>
+
+        <AuthorizeView Roles="Usuario">
+            <p>✅ Accede a tus tareas personales.</p>
+            <a class="btn btn-primary" href="/tareas">Ver mis tareas</a>
+        </AuthorizeView>
+
+        <p>¿Deseas cerrar sesión? <a href="/logout">Haz clic aquí</a>.</p>
+    </Authorized>
+
+    <NotAuthorized>
+        <p>Por favor, <a href="/login">inicia sesión</a> para acceder a tus tareas.</p>
+    </NotAuthorized>
+</AuthorizeView>

@@ -1,0 +1,90 @@
+﻿@page "/login"
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Authorization
+@using TaskManager.UI.Services
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+@inject CustomAuthProvider AuthProvider
+@attribute [Authorize]
+
+<h3>Contenido protegido</h3>
+<p>Solo usuarios logueados pueden ver esto.</p>
+
+<h3>Iniciar sesión</h3>
+
+<input @bind="Username" placeholder="Usuario" />
+<input @bind="Password" placeholder="Contraseña" type="password" />
+<button @onclick="DoLogin">Entrar</button>
+
+@if (Error)
+{
+    <div class="alert alert-danger">Usuario o contraseña inválidos</div>
+    <p style="color:red;">Usuario o contraseña inválido</p>
+}
+}
+
+<EditForm Model="loginModel" OnValidSubmit="DoLogin">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="username">Usuario</label>
+        <InputText id="username" class="form-control" @bind-Value="loginModel.Username" />
+    </div>
+
+    <div class="mb-3">
+        <label for="password">Contraseña</label>
+        <InputText id="password" class="form-control" type="password" @bind-Value="loginModel.Password" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Entrar</button>
+</EditForm>
+
+<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+    <InputText @bind-Value="loginModel.Username" placeholder="Usuario" />
+    <InputText @bind-Value="loginModel.Password" placeholder="Contraseña" type="password" />
+    <button type="submit">Iniciar sesión</button>
+</EditForm>
+
+@code {
+    private LoginModel loginModel = new();
+    private string Username = "";
+    private string Password = "";
+    private bool Error = false;
+
+    private async Task DoLogin()
+    {
+        var success = await AuthService.Login(loginModel.Username!, loginModel.Password!);
+        if (success)
+        {
+            AuthProvider.NotifyUserAuthentication(loginModel.Username!);
+            Navigation.NavigateTo("/");
+        }
+        else
+        {
+            Error = true;
+        }
+    }
+
+    private async Task HandleLogin()
+    {
+        var result = await AuthService.Login(loginModel.Username!, loginModel.Password!);
+        if (result)
+        {
+            Navigation.NavigateTo("/");
+        }
+        else
+        {
+            Console.WriteLine("Login failed");
+        }
+    }
+
+    public class LoginModel
+    {
+        [Required(ErrorMessage = "Usuario requerido")]
+        public string? Username { get; set; }
+
+        [Required(ErrorMessage = "Contraseña requerida")]
+        public string? Password { get; set; }
+    }
+}

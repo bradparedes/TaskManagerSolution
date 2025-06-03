@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using TaskManager.UI.Services
+@inherits LayoutComponentBase
+@inject AuthenticationStateProvider AuthProvider
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<button @onclick="Logout">Cerrar sesión</button>
+
+<AuthorizeView>
+    <Authorized>
+        <p>Bienvenido, @context.User.Identity?.Name ?? "Usuario"</p>
+        <button @onclick="Logout">Cerrar sesión</button>
+    </Authorized>
+    <NotAuthorized>
+        <p>No has iniciado sesión.</p>
+        <a href="/login">Login</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    
+    private async Task Logout()
+    {
+        await AuthService.Logout();
+        Navigation.NavigateTo("/login", true);
+    }
+}
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
