@@ -1,0 +1,6 @@
+echo bin/ > .gitignore
+echo obj/ >> .gitignore
+echo .vs/ >> .gitignore
+echo *.user >> .gitignore
+echo *.suo >> .gitignore
+echo *.userosscache >> .gitignore
